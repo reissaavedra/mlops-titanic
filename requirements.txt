@@ -1,0 +1,16 @@
+fastapi==0.95.1
+numpy == 1.24.3
+pandas==1.5.3
+kaggle==1.5.13
+psycopg2-binary==2.9.6
+loguru==0.7.0
+alembic==1.10.4
+pendulum==2.0.0
+sqlalchemy==1.4.48
+scikit-learn==1.2.2
+category-encoders==2.6.0
+xgboost==1.7.5
+mlflow==2.3.1
+click
+python-dotenv
+joblib

@@ -3,12 +3,12 @@ version: '3.8'
 services:
   postgres:
     build:
-      context: ./postgres
+      context: docker/postgres
     container_name: postgres
     restart: always
     environment:
       - POSTGRES_PASSWORD=${POSTGRESQL_PASSWORD}
-      - POSTGRES_MULTIPLE_DATABASES=mlflow,airflow,titanic
+      - POSTGRES_MULTIPLE_DATABASES=mlflow,titanic
     ports:
       - "5432:5432"
     volumes:
@@ -23,10 +23,9 @@ services:
     depends_on:
       - postgres
     build:
-      context: ./mlflow
+      context: docker/mlflow
     container_name: mlflow_server
     expose:
-        - "5000"
+      - "5000"
     ports:
-        - "5000:5000"
-    command: mlflow server --backend-store-uri postgresql://mlflow:mlflow@postgres:5432/mlflow --default-artifact-root /mlflow --host 0.0.0.0
+      - "5000:5000"

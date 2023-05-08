@@ -1,5 +1,6 @@
 from sqlalchemy.orm import sessionmaker, Session, declarative_base
 from sqlalchemy import create_engine
+from configuration.settings import settings as s
 
 
 class Database:
@@ -7,7 +8,7 @@ class Database:
 
     def get_engine(self):
         if self.__engine is None:
-            url = f"postgresql://titanic:titanic@localhost/titanic"
+            url = f"postgresql://{s.DB_USER}:{s.DB_PASSWORD}@{s.DB_HOST}/{s.DB_NAME}"
             self.__engine = create_engine(url, pool_size=20, echo=False, pool_pre_ping=True)
         return self.__engine
 
@@ -20,4 +21,3 @@ class Database:
 database = Database()
 db = database.get_session()
 Base = declarative_base()
-
