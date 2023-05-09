@@ -7,7 +7,7 @@ try:
     from alembic.config import Config
     from alembic import command
 
-    alembic_cfg = Config("/home/reisson/TUL/mlops-titanic/etl/alembic.ini")
+    alembic_cfg = Config("./etl/alembic.ini")
     command.downgrade(alembic_cfg, "base")
     command.upgrade(alembic_cfg, "head")
 except Exception as ex:

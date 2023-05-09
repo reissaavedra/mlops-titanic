@@ -6,7 +6,7 @@ with open('requirements.txt') as f:
 setup(
     name='ml_titanic',
     version='0.1',
-    py_modules=['hello'],
+    py_modules=['ml_engineering', 'etl', 'database',  'configuration'],
     install_requires=requirements,
     entry_points='''
         [console_scripts]

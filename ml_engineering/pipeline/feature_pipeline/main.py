@@ -2,6 +2,7 @@ import os
 from typing import List
 
 import click
+import loguru
 
 from database.database import db
 from ml_engineering.data_loader.DataLoader import DataLoader
@@ -9,7 +10,6 @@ from ml_engineering.pipeline.constant.constant import FEATURE_PIPELINE_DEFAULT_P
     LABEL_TRAIN_PATH, FEATURE_TRAIN_PATH, LABEL_VALID_PATH, FEATURE_PIPELINE_JOBLIB
 from ml_engineering.pipeline.feature_pipeline.feature_pipeline import FeaturePipeline
 import joblib
-from loguru import logger
 from sqlalchemy.orm import Session
 from sklearn.pipeline import Pipeline
 import warnings
@@ -61,9 +61,9 @@ class FeatureExecutor:
 
 
 @click.command()
-@click.option('--verbose', is_flag=True, help="Will print verbose messages.")
 @click.option('--output', '-o', type=str, default=FEATURE_PIPELINE_DEFAULT_PATH, help="Will print verbose messages.")
-def main(verbose, output: str):
+def main(output: str):
+    from loguru import logger
     feature_executor = FeatureExecutor(db)
 
     X_train, X_valid, y_train, y_valid = feature_executor.preprocess_data(query=query_titanic_train_dataset,

@@ -1,7 +1,7 @@
 import datetime
 
 import pytz
-from sqlalchemy import Column, Integer, Boolean, SmallInteger, String, Float, DateTime
+from sqlalchemy import Column, Integer, SmallInteger, String, Float, DateTime
 from database.database import Base
 
 

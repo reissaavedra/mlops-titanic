@@ -1,17 +1,12 @@
-
-from pathlib import Path
-
 import pandas as pd
 from loguru import logger
 from sklearn.metrics import accuracy_score
 
-from database.database import db
-from ml_engineering.data_loader.DataLoader import DataLoader
-from ml_engineering.model.logistic_regression_model import LogisticRegressionModel
-from ml_engineering.pipeline.feature_pipeline.feature_pipeline import FeaturePipeline
-from ml_engineering.pipeline.training_pipeline.train_pipeline import TrainingPipeline
-import mlflow
-
+from app.database import db
+from app.ml_engineering.data_loader.DataLoader import DataLoader
+from app.ml_engineering.model.logistic_regression_model import LogisticRegressionModel
+from app.ml_engineering.pipeline.feature_pipeline.feature_pipeline import FeaturePipeline
+from app.ml_engineering.pipeline.training_pipeline.train_pipeline import TrainingPipeline
 
 warnings.simplefilter(action='ignore')
 experiment_name = "my-experiment"
@@ -44,14 +39,7 @@ def start_application():
                   "model__eval_metric": "error"}
 
     # my_model = XGBClassifier(
-    #     learning_rate=0.01,
-    #     n_estimators=1000,
-    #     max_depth=5,
-    #     min_child_weight=1,
-    #     gamma=0,
-    #     subsample=0.8,
-    #     colsample_bytree=0.8,
-    #     seed=42)
+    #     )
 
     log_reg_params = {
         'solver': 'lbfgs'

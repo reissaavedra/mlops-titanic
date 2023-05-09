@@ -4,11 +4,12 @@ services:
   postgres:
     build:
       context: docker/postgres
+    hostname: postgres
     container_name: postgres
     restart: always
     environment:
       - POSTGRES_PASSWORD=${POSTGRESQL_PASSWORD}
-      - POSTGRES_MULTIPLE_DATABASES=mlflow,titanic
+      - POSTGRES_MULTIPLE_DATABASES=mlflow,titanic,sonar
     ports:
       - "5432:5432"
     volumes:
@@ -29,3 +30,16 @@ services:
       - "5000"
     ports:
       - "5000:5000"
+
+  sonarqube:
+    image: sonarqube:community
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+    ports:
+      - "9000:9000"
+volumes:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_logs:

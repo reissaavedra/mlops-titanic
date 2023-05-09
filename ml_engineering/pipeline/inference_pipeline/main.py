@@ -1,4 +1,3 @@
-import os
 from typing import List
 
 import click
@@ -8,7 +7,6 @@ from database.database import db
 from ml_engineering.data_loader.DataLoader import DataLoader
 from ml_engineering.pipeline.constant.constant import FEATURE_PIPELINE_DEFAULT_PATH, FEATURE_PIPELINE_JOBLIB, MODEL_URI
 import joblib
-from loguru import logger
 import warnings
 import mlflow
 from sqlalchemy import Column, Integer, SmallInteger, String
@@ -71,16 +69,14 @@ class InferenceExecutor:
 
 
 @click.command()
-@click.option('--verbose', is_flag=True, help="Will print verbose messages.")
-@click.option('--output', '-o', type=str, default=FEATURE_PIPELINE_DEFAULT_PATH, help="Will print verbose messages.")
 @click.option('--modelname', '-model', type=str, default="titanic-log-reg-model", help="Name of model")
-def main(verbose, output: str, modelname: str):
+def main(modelname: str):
     inf_executor = InferenceExecutor(db=db)
     X_test, idx_X_Test = inf_executor.preprocess_data(query=query_titanic_test_dataset,
                                                       remove_columns=columns_remove,
                                                       index='passenger_id')
 
-    inf_executor.load_pipeline(output)
+    inf_executor.load_pipeline(FEATURE_PIPELINE_DEFAULT_PATH)
     X_test = inf_executor.transform_data(X_test)
     inf_executor.load_latest_model(model_name=modelname)
 

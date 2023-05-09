@@ -10,3 +10,5 @@ outputs/
 ml_titanic.egg-info/
 
 .envs/
+
+.pytest_cache

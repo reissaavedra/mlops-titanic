@@ -7,5 +7,7 @@ LABEL_TRAIN_PATH = f'{os.getcwd()}/data/processed/label_train.csv'
 FEATURE_VALID_PATH = f'{os.getcwd()}/data/processed/feature_valid.csv'
 LABEL_VALID_PATH = f'{os.getcwd()}/data/processed/label_valid.csv'
 
-FEATURE_PIPELINE_JOBLIB = '{}/feature_pipeline.joblib'
+FEATURE_PIPELINE_JOBLIB = '{}/pipeline/feature_pipeline.joblib'
+MODEL_JOBLIB_PATH = '{}/model'
+
 MODEL_URI = "models://{}/{}/{}"

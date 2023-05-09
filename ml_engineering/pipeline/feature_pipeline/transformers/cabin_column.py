@@ -4,6 +4,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder
 from loguru import logger
 
+
 class CabinColumnTransformer(BaseEstimator, TransformerMixin):
     """
     a general class for transforming cabin column of Titanic dataset for using in the machine

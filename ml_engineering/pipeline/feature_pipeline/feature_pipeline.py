@@ -1,11 +1,8 @@
 from typing import List
 
-from sklearn.compose import ColumnTransformer
-from sklearn.decomposition import PCA
-from sklearn.feature_selection import SelectKBest
 from sklearn.impute import SimpleImputer
-from sklearn.pipeline import Pipeline, FeatureUnion
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder, Normalizer
 
 from ml_engineering.pipeline.feature_pipeline.transformers.age_column import AgeColumnTransformer
 from ml_engineering.pipeline.feature_pipeline.transformers.cabin_column import CabinColumnTransformer
@@ -20,6 +17,7 @@ class FeaturePipeline:
     cabin_transformer = CabinColumnTransformer()
     passenger_transformer = PassengerColumnTransformer()
     categorical_transformer = CategoricalColumnTransformer()
+    normalizer = Normalizer().set_output(transform='pandas')
 
     def __init__(self, numerical_cols: List[str], categorical_cols: List[str]):
         self.numerical_cols = numerical_cols
@@ -28,8 +26,7 @@ class FeaturePipeline:
     @staticmethod
     def _set_numerical_transformer():
         return Pipeline(steps=[
-            ('imputer', SimpleImputer(strategy='mean')),
-            ('scaler', StandardScaler())])
+            ('imputer', SimpleImputer(strategy='mean'))])
 
     @staticmethod
     def _set_categorical_transformer():
@@ -43,4 +40,6 @@ class FeaturePipeline:
                                ('age', self.age_transformer),
                                ('cabin', self.cabin_transformer),
                                ('passenger_id', self.passenger_transformer),
-                               ('categorical', self.categorical_transformer)])
+                               ('categorical', self.categorical_transformer),
+                               ('normalizer', self.normalizer),
+                               ])
