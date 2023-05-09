@@ -5,8 +5,6 @@ docker/mlflow/*
 venv
 dist/
 
-outputs/
-
 ml_titanic.egg-info/
 
 .envs/
