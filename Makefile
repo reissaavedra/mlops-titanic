@@ -1,5 +1,5 @@
 all_tests:
-	pytest -v  --cov --cov-report=xml
+	pytest --html=outputs/pytest-report.html
 
 flake:
 	flake8 /home/reisson/TUL/mlops-titanic/.flake8 --show-source --statistics
