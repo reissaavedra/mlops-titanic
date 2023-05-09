@@ -88,7 +88,7 @@ SHAP es un método basado en teoría de juego cooperativo: imagine un juego coop
 
 Para eso se ha creado un notebook analizando e interpretando los modelos creados.
 
-[xgboost](https://github.com/reissaavedra/mlops-titanic/blob/main/notebooks/model_evaluation_xgboost.ipynb)
+[xgboost_evaluation](https://github.com/reissaavedra/mlops-titanic/blob/main/notebooks/model_evaluation_xgboost.ipynb)
 
 
 
