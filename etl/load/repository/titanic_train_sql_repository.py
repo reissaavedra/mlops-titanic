@@ -48,6 +48,7 @@ class TitanicTrainSqlRepository(TitanicRepository):
 
         try:
             self.db.bulk_save_objects(titanic_train_data)
+            return titanic_train_data
         except Exception as ex:
             self.db.rollback()
             logger.error(ex.__str__())
