@@ -57,15 +57,17 @@ Los distintos módulos del proyecto son invocados mediante CLI (Command Line Int
 #### Training Pipeline
 
 `train`
+
 params:
--t : tipo de modelo a entrenar (logistic regression, xgboost classifier, random forest classifier)
--hp: path donde se encuentra el archivo de configuración yaml
---name: nombre del modelo
+* - t : tipo de modelo a entrenar (logistic regression, xgboost classifier, random forest classifier)
+* - hp: path donde se encuentra el archivo de configuración yaml
+* --name: nombre del modelo
 #### Inference Pipeline
 
 \`inference\`
+
 params:
--modelname: nombre del modelo a recuperar de mlflow
+* -modelname: nombre del modelo a recuperar de mlflow
 
 
 ### Test
