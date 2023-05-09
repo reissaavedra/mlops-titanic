@@ -1,13 +1,9 @@
 from sqlalchemy.engine import Result
 from sqlalchemy.orm import Session
 from typing import List, Any
-from os import path
-import subprocess
-import requests
 import time
 
 from test.fakes.models_fake import ModelsFake
-from threading import Thread
 
 
 class BaseTest(ModelsFake):
@@ -33,12 +29,7 @@ class BaseTest(ModelsFake):
         monkeypatch.setattr(Session, "execute", mock)
         monkeypatch.setattr(Result, "fetchall", mock)
         monkeypatch.setattr(Result, "fetchone", mock)
-        monkeypatch.setattr(requests, "post", mock)
-        monkeypatch.setattr(requests, "get", mock)
-        monkeypatch.setattr(path, "exists", mock)
-        monkeypatch.setattr(subprocess, "run", mock)
         monkeypatch.setattr(time, "sleep", not_results)
-        monkeypatch.setattr(Thread, "start", not_results)
 
     @staticmethod
     def iterator(results: List[Any]) -> Any:
