@@ -9,7 +9,24 @@ from etl.load.repository.titanic_test_sql_repository import \
     TitanicTestSqlRepository
 
 from etl.extract.extractor.titanic_data_extractor import TitanicDataExtractor
+
+from dotenv import load_dotenv
 from loguru import logger
+
+load_dotenv('./etl/.env')
+
+
+def init_alembic():
+    try:
+        from alembic.config import Config
+        from alembic import command
+
+        alembic_cfg = Config("./etl/alembic.ini")
+        command.downgrade(alembic_cfg, "base")
+        command.upgrade(alembic_cfg, "head")
+    except Exception as ex:
+        logger.error(ex.__str__())
+        raise ex
 
 
 class LocalETL:
@@ -22,6 +39,7 @@ class LocalETL:
                  train_csv_path: str,
                  test_csv_path: str,
                  verbose=False):
+        init_alembic()
         self.verbose: bool = verbose
         self.train_csv_path = train_csv_path
         self.test_csv_path = test_csv_path
