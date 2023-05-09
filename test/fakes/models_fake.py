@@ -1,0 +1,2 @@
+class ModelsFake:
+    model: str

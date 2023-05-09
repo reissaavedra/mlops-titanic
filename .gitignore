@@ -1,1 +1,14 @@
 .idea
+airflow/*
+postgres-store/
+docker/mlflow/*
+venv
+dist/
+
+outputs/
+
+ml_titanic.egg-info/
+
+.envs/
+
+.pytest_cache
