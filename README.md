@@ -76,7 +76,9 @@ También se ha realizado un paquete que contiene el unit testing, el cual se lan
 
 \`make all_tests\`
 
-Esto generará un reporte coverage en formato xml
+Esto generará un reporte coverage en formato xml y html
+
+![image-report](./img/report-image.png)
 
 
 
