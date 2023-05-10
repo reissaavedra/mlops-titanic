@@ -27,7 +27,7 @@ class SurvivedPrediction(Base):
 
     passenger_id = Column(Integer, primary_key=True)
     predict = Column(SmallInteger)
-    model = Column(String(250))
+    model = Column(String(250), primary_key=True)
 
 
 class InferenceExecutor:

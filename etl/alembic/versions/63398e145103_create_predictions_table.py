@@ -19,9 +19,10 @@ depends_on = None
 def upgrade() -> None:
     op.create_table(
         'survived_predictions',
-        sa.Column('passenger_id', sa.Integer, primary_key=True),
+        sa.Column('passenger_id', sa.Integer, nullable=False),
         sa.Column('predict', sa.SmallInteger, nullable=False),
-        sa.Column('model', sa.String, nullable=False)
+        sa.Column('model', sa.String, nullable=False),
+        sa.PrimaryKeyConstraint('passenger_id', 'model', name='pk_my_table')
     )
 
 

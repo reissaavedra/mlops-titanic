@@ -1,1 +1,12 @@
-solver: saga
+objective: binary:logistic
+eval_metric: auc
+max_depth: 6
+eta: 0.3
+gamma: 0
+min_child_weight: 1
+subsample: 1
+colsample_bytree: 1
+alpha: 0
+lambda: 1
+scale_pos_weight: 1
+n_jobs: 1
