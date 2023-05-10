@@ -10,10 +10,10 @@ from etl.load.repository.titanic_test_sql_repository import \
 
 from etl.extract.extractor.titanic_data_extractor import TitanicDataExtractor
 
-from dotenv import load_dotenv
+
 from loguru import logger
 
-load_dotenv('./etl/.env')
+
 
 
 def init_alembic():
