@@ -44,7 +44,7 @@ Para desplegar los servcios se debe hacer uso de docker-compose de la siguiente 
 
 Para usar los módulos el CLI del proyecto ejecutar el siguiente comando en el directorio root
 
-`etl`
+`pip install --editable .`
 
 Los distintos módulos del proyecto son invocados mediante CLI (Command Line Interface) , el cual se usará de la siguiente manera:
 
