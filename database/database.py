@@ -19,5 +19,6 @@ class Database:
 
 
 database = Database()
+engine = database.get_engine()
 db = database.get_session()
 Base = declarative_base()

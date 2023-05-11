@@ -41,6 +41,8 @@ class FeatureExecutor:
         return X_train, X_valid, y_train, y_valid
 
     def execute_pipeline(self, X_train, X_valid, y_train, y_valid):
+        from loguru import logger
+        logger.info(X_train.columns)
         self.preprocessor = self.feature_pipeline.fit(X_train, y_train)
         X_train_fitted = self.preprocessor.transform(X_train)
         X_valid_fitted = self.preprocessor.transform(X_valid)
@@ -68,8 +70,10 @@ def main(output: str):
 
     X_train, X_valid, y_train, y_valid = feature_executor.preprocess_data(query=query_titanic_train_dataset,
                                                                           remove_columns=columns_remove)
-
+    logger.info(X_train.columns)
     X_train, X_valid, y_train, y_valid = feature_executor.execute_pipeline(X_train, X_valid, y_train, y_valid)
 
     feature_executor.save_data_processed(X_train, X_valid, y_train, y_valid)
+    logger.info(X_train.columns)
+
     feature_executor.save_pipeline(output)

@@ -1,5 +1,5 @@
 from etl.load.repository.titanic_test_sql_repository import TitanicTestSqlRepository
-from etl.load.repository.titanic_train_sql_repository import TitanicTrainSqlRepository
+from etl.load.repository.titanic_sql_repository import TitanicTrainSqlRepository
 from sqlalchemy.engine import Result
 from sqlalchemy.orm import Session
 from typing import List, Any

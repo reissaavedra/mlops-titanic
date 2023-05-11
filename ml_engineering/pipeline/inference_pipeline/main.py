@@ -54,10 +54,10 @@ class InferenceExecutor:
         model_version = mlflow.search_model_versions(filter_string=f"name='{model_name}'")[0]
         model_uri = MODEL_URI.format(model_version.run_id, model_version.name, model_version.version)
         self.model_version = model_version
-        self.model = mlflow.pyfunc.load_model(model_uri)
+        self.model = mlflow.xgboost.load_model(model_uri)
 
     def predict(self, data: pd.DataFrame):
-        return self.model.predict(data)
+        return self.model.predict_proba(data)
 
     def save_predictions(self, y_predict, idx_predict):
         y_pred = pd.DataFrame({'predict': y_predict,

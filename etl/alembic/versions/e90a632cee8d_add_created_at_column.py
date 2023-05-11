@@ -17,18 +17,11 @@ depends_on = None
 
 
 def upgrade() -> None:
-    op.add_column('titanic_train',
-                  sa.Column('created_at', sa.DateTime(timezone=True),
-                            nullable=True, server_default=sa.text('(now() at time zone \'utc-5\')')))
-
-    op.add_column('titanic_test',
+    op.add_column('titanic',
                   sa.Column('created_at', sa.DateTime(timezone=True),
                             nullable=True, server_default=sa.text('(now() at time zone \'utc-5\')')))
 
 
 def downgrade() -> None:
-    op.drop_column('titanic_train',
-                   'created_at')
-
-    op.drop_column('titanic_test',
+    op.drop_column('titanic',
                    'created_at')

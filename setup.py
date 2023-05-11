@@ -17,5 +17,7 @@ setup(
         features=ml_engineering.pipeline.feature_pipeline.main:main
         [console_scripts]
         inference=ml_engineering.pipeline.inference_pipeline.main:main
+        [console_scripts]
+        interface=ml_engineering.app.main:main
     ''',
 )
