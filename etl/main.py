@@ -20,5 +20,5 @@ def main():
               .build())
 
     titanic_etl = TitanicETLProcess(config)
-    logger.info('Executing EtTL process')
+    logger.info('Executing ETL process')
     titanic_etl.execute()

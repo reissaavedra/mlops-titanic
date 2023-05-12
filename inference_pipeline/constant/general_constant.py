@@ -1,6 +1,6 @@
 NUMERICAL_COLS = ['p_class', 'fare']
 CATEGORICAL_COLS = ['sex', 'embarked']
-REMOVE_COLS = ['created_at', 'ticket']
+REMOVE_COLS = ['created_at', 'ticket', 'survived']
 LABEL = 'survived'
 
 RAW_DATA_DEFAULT_PATH: str = "./inference_pipeline/data/raw"
@@ -16,6 +16,9 @@ RAW_X_TEST = f'{RAW_DATA_DEFAULT_PATH}{X_TEST_CSV}'
 RAW_Y_TRAIN = f'{RAW_DATA_DEFAULT_PATH}{Y_TRAIN_CSV}'
 RAW_Y_TEST = f'{RAW_DATA_DEFAULT_PATH}{Y_TEST_CSV}'
 
+RAW_DATA = f'{RAW_DATA_DEFAULT_PATH}/data.csv'
+PROCESSED_DATA = f'{PROCESSED_DATA_DEFAULT_PATH}/data.csv'
+
 PROCESSED_X_TRAIN = f'{PROCESSED_DATA_DEFAULT_PATH}{X_TRAIN_CSV}'
 PROCESSED_X_TEST = f'{PROCESSED_DATA_DEFAULT_PATH}{X_TEST_CSV}'
 PROCESSED_Y_TRAIN = f'{PROCESSED_DATA_DEFAULT_PATH}{Y_TRAIN_CSV}'
@@ -26,4 +29,11 @@ QUERY_TEST_TITANIC_DATA = 'SELECT * FROM titanic where survived = -1'
 
 FEATURE_PIPELINE_JOBLIB_PATH = "./feature_pipeline/artifact"
 
+ML_FLOW_TRACKING_URI = 'http://0.0.0.0:5000'
+
+MODEL_URI = "models://{}/{}/{}"
+
+INFERENCE_DATA_DEFAULT_PATH: str = "./inference_pipeline/data/processed"
+
+INFERENCE_DATA_DEFAULT = f'{INFERENCE_DATA_DEFAULT_PATH}/data.csv'
 

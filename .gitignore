@@ -12,3 +12,7 @@ ml_titanic.egg-info/
 .pytest_cache
 
 mlruns
+
+.ipynb_checkpoints
+
+.envs

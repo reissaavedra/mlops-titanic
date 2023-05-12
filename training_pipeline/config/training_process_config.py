@@ -7,6 +7,7 @@ class TrainingProcessConfig:
         self.model_type = None
         self.hyperparams = None
         self.mlflow_tracking_uri = None
+        self.model_name = None
         self.metrics_iterator = MetricsStrategyIterator()
         self.accuracy_metric = False
         self.precision_metric = False
@@ -15,6 +16,10 @@ class TrainingProcessConfig:
 
     def set_model_type(self, model_type):
         self.model_type = model_type
+        return self
+
+    def set_model_name(self, model_name):
+        self.model_name = model_name
         return self
 
     def set_hyperparams(self, hyperparams):
