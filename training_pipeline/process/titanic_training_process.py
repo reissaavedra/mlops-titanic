@@ -34,8 +34,6 @@ class TitanicTrainingProcess(TrainingProcess):
                                   self.data,
                                   self.config.metrics_iterator)
 
-
-
     def build(self):
         return self
 

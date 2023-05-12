@@ -1,5 +1,5 @@
 logistic_regression:
-
+  solver: lbfgs
 
 xg_boost:
   max_depth: 5
