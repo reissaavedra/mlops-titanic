@@ -1,45 +1,37 @@
-from typing import List
-
-from sklearn.impute import SimpleImputer
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder, Normalizer
-
+from feature_pipeline.pipeline.composite_feature_pipeline import CompositeFeaturePipeline
 from feature_pipeline.pipeline.transformers.age_column import AgeColumnTransformer
 from feature_pipeline.pipeline.transformers.cabin_column import CabinColumnTransformer
 from feature_pipeline.pipeline.transformers.categorical_column import CategoricalColumnTransformer
 from feature_pipeline.pipeline.transformers.name_column import NameColumnTransformer
 from feature_pipeline.pipeline.transformers.passenger_column import PassengerColumnTransformer
+from sklearn.preprocessing import Normalizer
 
 
 class FeaturePipeline:
-    name_transformer = NameColumnTransformer()
-    age_transformer = AgeColumnTransformer()
-    cabin_transformer = CabinColumnTransformer()
-    passenger_transformer = PassengerColumnTransformer()
-    categorical_transformer = CategoricalColumnTransformer()
-    normalizer = Normalizer().set_output(transform='pandas')
 
-    def __init__(self, numerical_cols: List[str], categorical_cols: List[str]):
-        self.numerical_cols = numerical_cols
-        self.categorical_cols = categorical_cols
+    def __init__(self, config):
+        self.config = config
 
-    @staticmethod
-    def _set_numerical_transformer():
-        return Pipeline(steps=[
-            ('imputer', SimpleImputer(strategy='mean'))])
+    def transform(self, x_train, x_test, y_train, y_test):
+        transform_step = CompositeFeaturePipeline()
+        if self.config.name_pipeline:
+            transform_step.add_step(('name', NameColumnTransformer()))
+        if self.config.age_pipeline:
+            transform_step.add_step(('age', AgeColumnTransformer()))
 
-    @staticmethod
-    def _set_categorical_transformer():
-        return Pipeline(steps=[
-            ('imputer', SimpleImputer(strategy='most_frequent')),
-            ('onehot', OneHotEncoder(handle_unknown='ignore', sparse=False))
-        ])
+        if self.config.cabin_pipeline:
+            transform_step.add_step(('cabin', CabinColumnTransformer()))
 
-    def get_pipeline(self) -> Pipeline:
-        return Pipeline(steps=[('name', self.name_transformer),
-                               ('age', self.age_transformer),
-                               ('cabin', self.cabin_transformer),
-                               ('passenger_id', self.passenger_transformer),
-                               ('categorical', self.categorical_transformer),
-                               ('normalizer', self.normalizer),
-                               ])
+        if self.config.passenger_id_pipeline:
+            transform_step.add_step(('passenger_id', PassengerColumnTransformer()))
+
+        if self.config.categorical_pipeline:
+            transform_step.add_step(('categorical', CategoricalColumnTransformer()))
+
+        if self.config.normalizer_pipeline:
+            transform_step.add_step(('normalizer', Normalizer().set_output(transform='pandas')))
+        transform_step.fit(x_train, y_train)
+        x_train = transform_step.transform(x_train)
+        x_test = transform_step.transform(x_test)
+        transform_step.save()
+        return x_train, x_test, y_train, y_test

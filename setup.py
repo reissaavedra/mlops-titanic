@@ -6,13 +6,13 @@ with open('requirements.txt') as f:
 setup(
     name='ml_titanic',
     version='0.1',
-    py_modules=['ml_engineering', 'etl', 'database',  'configuration', 'feature_pipeline'],
+    py_modules=['ml_engineering', 'etl', 'database',  'configuration', 'feature_pipeline', 'training_pipeline'],
     install_requires=requirements,
     entry_points='''
         [console_scripts]
         etl=etl.main:main
         [console_scripts]
-        train=ml_engineering.pipeline.training_pipeline.main:main
+        train=training_pipeline.main:main
         [console_scripts]
         features=feature_pipeline.main:main
         [console_scripts]

@@ -21,10 +21,10 @@ class TitanicFeatureProcess(FeatureProcess):
         if not os.path.exists(RAW_DATA_DEFAULT_PATH):
             os.makedirs(RAW_DATA_DEFAULT_PATH)
         X_train, X_test, y_train, y_test = data_loader.train_test_split(data, label=LABEL, random_state=10)
-        X_train.to_csv(RAW_X_TRAIN)
-        X_test.to_csv(RAW_X_TEST)
-        y_train.to_csv(RAW_Y_TRAIN)
-        y_test.to_csv(RAW_Y_TEST)
+        X_train.to_csv(RAW_X_TRAIN, index=False)
+        X_test.to_csv(RAW_X_TEST, index=False)
+        y_train.to_csv(RAW_Y_TRAIN, index=False)
+        y_test.to_csv(RAW_Y_TEST, index=False)
 
     def execute_feature_pipeline(self):
         X_train = pd.read_csv(RAW_X_TRAIN)
@@ -36,7 +36,7 @@ class TitanicFeatureProcess(FeatureProcess):
 
         if not os.path.exists(PROCESSED_DATA_DEFAULT_PATH):
             os.makedirs(PROCESSED_DATA_DEFAULT_PATH)
-        X_train.to_csv(PROCESSED_X_TRAIN)
-        X_test.to_csv(PROCESSED_X_TEST)
-        y_train.to_csv(PROCESSED_Y_TRAIN)
-        y_test.to_csv(PROCESSED_Y_TEST)
+        X_train.to_csv(PROCESSED_X_TRAIN, index=False)
+        X_test.to_csv(PROCESSED_X_TEST, index=False)
+        y_train.to_csv(PROCESSED_Y_TRAIN, index=False)
+        y_test.to_csv(PROCESSED_Y_TEST, index=False)
