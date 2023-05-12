@@ -1,10 +1,12 @@
 import pandas as pd
+import yaml
 
-from training_pipeline.constant.general_constant import X_TRAIN, X_TEST, Y_TRAIN, Y_TEST, MLFLOW_EXPERIMENT
+from training_pipeline.constant.general_constant import (MLFLOW_EXPERIMENT,
+                                                         X_TEST, X_TRAIN,
+                                                         Y_TEST, Y_TRAIN)
 from training_pipeline.facade.mlflow_facade import MLFlowFacade
 from training_pipeline.factory.model_factory import ModelFactory
 from training_pipeline.process.training_process import TrainingProcess
-import yaml
 
 
 class TitanicTrainingProcess(TrainingProcess):

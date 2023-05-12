@@ -1,13 +1,13 @@
-from inference_pipeline.constant.general_constant import FEATURE_PIPELINE_JOBLIB_PATH, QUERY_TEST_TITANIC_DATA, \
-    REMOVE_COLS
+import joblib
+import pandas as pd
+
 from feature_pipeline.data_loader.data_loader import DataLoader
-from inference_pipeline.constant.general_constant import RAW_DATA, PROCESSED_DATA, \
-    INFERENCE_DATA_DEFAULT
+from inference_pipeline.constant.general_constant import (
+    FEATURE_PIPELINE_JOBLIB_PATH, INFERENCE_DATA_DEFAULT, PROCESSED_DATA,
+    QUERY_TEST_TITANIC_DATA, RAW_DATA, REMOVE_COLS)
 from inference_pipeline.process.inference_process import InferenceProcess
 from training_pipeline.constant.general_constant import MLFLOW_EXPERIMENT
 from training_pipeline.facade.mlflow_facade import MLFlowFacade
-import pandas as pd
-import joblib
 
 
 class TitanicInferenceProcess(InferenceProcess):

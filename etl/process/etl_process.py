@@ -1,5 +1,7 @@
+from abc import ABC, abstractmethod
+
 from loguru import logger
-from abc import abstractmethod, ABC
+
 from etl.constant.general_constant import ALEMBIC_INI_PATH
 
 
@@ -13,8 +15,8 @@ class ETLProcess(ABC):
     @staticmethod
     def pre_etl_process():
         try:
-            from alembic.config import Config
             from alembic import command
+            from alembic.config import Config
 
             alembic_cfg = Config(ALEMBIC_INI_PATH)
             command.downgrade(alembic_cfg, "base")

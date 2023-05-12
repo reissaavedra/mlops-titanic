@@ -1,5 +1,5 @@
-from training_pipeline.factory.abstract_model_factory import RandomForestFactory, XgBoostFactory, \
-    LogisticRegressionFactory
+from training_pipeline.factory.abstract_model_factory import (
+    LogisticRegressionFactory, RandomForestFactory, XgBoostFactory)
 
 
 class ModelFactory:

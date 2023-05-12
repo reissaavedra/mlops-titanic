@@ -1,11 +1,14 @@
+import os
+
 import pandas as pd
 
-from feature_pipeline.constant.general_constant import QUERY_TRAIN_TITANIC_DATA, REMOVE_COLS, LABEL, RAW_Y_TEST, \
-    RAW_Y_TRAIN, RAW_X_TEST, RAW_X_TRAIN, PROCESSED_Y_TRAIN, PROCESSED_Y_TEST, PROCESSED_X_TEST, PROCESSED_X_TRAIN, \
-    RAW_DATA_DEFAULT_PATH, PROCESSED_DATA_DEFAULT_PATH
+from feature_pipeline.constant.general_constant import (
+    LABEL, PROCESSED_DATA_DEFAULT_PATH, PROCESSED_X_TEST, PROCESSED_X_TRAIN,
+    PROCESSED_Y_TEST, PROCESSED_Y_TRAIN, QUERY_TRAIN_TITANIC_DATA,
+    RAW_DATA_DEFAULT_PATH, RAW_X_TEST, RAW_X_TRAIN, RAW_Y_TEST, RAW_Y_TRAIN,
+    REMOVE_COLS)
 from feature_pipeline.data_loader.data_loader import DataLoader
 from feature_pipeline.process.feature_process import FeatureProcess
-import os
 
 
 class TitanicFeatureProcess(FeatureProcess):

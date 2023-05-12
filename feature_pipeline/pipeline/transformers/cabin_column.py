@@ -1,8 +1,8 @@
 import pandas as pd
+from loguru import logger
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder
-from loguru import logger
 
 
 class CabinColumnTransformer(BaseEstimator, TransformerMixin):

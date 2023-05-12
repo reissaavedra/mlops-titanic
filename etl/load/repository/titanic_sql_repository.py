@@ -1,10 +1,10 @@
 from typing import List
 
+from loguru import logger
 from sqlalchemy.orm import Session
 
 from etl.load.model.titanic import Titanic
 from etl.load.repository.titanic_repository import TitanicRepository
-from loguru import logger
 
 
 class TitanicSqlRepository(TitanicRepository):

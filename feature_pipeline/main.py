@@ -1,11 +1,13 @@
-from loguru import logger
 import click
+from loguru import logger
 
 from database.database import db
-from feature_pipeline.config.feature_pipeline_config import FeaturePipelineConfig
+from feature_pipeline.config.feature_pipeline_config import \
+    FeaturePipelineConfig
 from feature_pipeline.config.feature_process_config import FeatureProcessConfig
 from feature_pipeline.pipeline.feature_pipeline import FeaturePipeline
-from feature_pipeline.process.titanic_feature_process import TitanicFeatureProcess
+from feature_pipeline.process.titanic_feature_process import \
+    TitanicFeatureProcess
 
 
 @click.command()

@@ -1,10 +1,13 @@
-from loguru import logger
-import click
-
-from training_pipeline.config.training_process_config import TrainingProcessConfig
-from training_pipeline.constant.general_constant import ML_FLOW_TRACKING_URI
-from training_pipeline.process.titanic_training_process import TitanicTrainingProcess
 import warnings
+
+import click
+from loguru import logger
+
+from training_pipeline.config.training_process_config import \
+    TrainingProcessConfig
+from training_pipeline.constant.general_constant import ML_FLOW_TRACKING_URI
+from training_pipeline.process.titanic_training_process import \
+    TitanicTrainingProcess
 
 # warnings.filterwarnings(action='ignore')
 

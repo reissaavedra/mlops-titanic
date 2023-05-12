@@ -1,5 +1,6 @@
-from etl.load.model.titanic import Titanic
 import datetime
+
+from etl.load.model.titanic import Titanic
 
 
 class ModelsFake:

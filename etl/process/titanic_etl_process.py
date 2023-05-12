@@ -1,12 +1,16 @@
-from etl.constant.general_constant import RAW_DATA_DEFAULT_PATH, TRAIN_CSV_PATH, TEST_CSV_PATH, TRANSFORMATED_PATH
-from etl.transform.transformation_strategy import UnionStrategy, FillEmptyStrategy
-from etl.transform.transformation_composite import CompositeTransformationStep
-from etl.load.repository.titanic_sql_repository import TitanicSqlRepository
-from etl.extract.extractor.data_output import LocalPathOutput
-from etl.process.etl_process import ETLProcess
-from etl.load.model.titanic import Titanic
-from loguru import logger
 import pandas as pd
+from loguru import logger
+
+from etl.constant.general_constant import (RAW_DATA_DEFAULT_PATH,
+                                           TEST_CSV_PATH, TRAIN_CSV_PATH,
+                                           TRANSFORMATED_PATH)
+from etl.extract.extractor.data_output import LocalPathOutput
+from etl.load.model.titanic import Titanic
+from etl.load.repository.titanic_sql_repository import TitanicSqlRepository
+from etl.process.etl_process import ETLProcess
+from etl.transform.transformation_composite import CompositeTransformationStep
+from etl.transform.transformation_strategy import (FillEmptyStrategy,
+                                                   UnionStrategy)
 
 
 class TitanicETLProcess(ETLProcess):

@@ -1,10 +1,12 @@
-from etl.load.repository.titanic_sql_repository import TitanicSqlRepository
-from test.fakes.models_fake import ModelsFake
-from etl.load.model.titanic import Titanic
 from test.base_test import BaseTest
-from database.database import db
+from test.fakes.models_fake import ModelsFake
 from typing import Any, List
+
 import pytest
+
+from database.database import db
+from etl.load.model.titanic import Titanic
+from etl.load.repository.titanic_sql_repository import TitanicSqlRepository
 
 
 class TestSqlRepository(BaseTest):

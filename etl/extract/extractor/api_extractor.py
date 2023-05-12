@@ -1,5 +1,6 @@
-from loguru import logger
 import zipfile
+
+from loguru import logger
 
 
 class APIExtractor:

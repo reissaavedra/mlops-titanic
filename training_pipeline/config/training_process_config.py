@@ -1,5 +1,6 @@
-from training_pipeline.metrics.metrics_strategy import MetricsStrategyIterator, AccuracyStrategy, F1ScoreStrategy, \
-    PrecisionStrategy, RecallStrategy
+from training_pipeline.metrics.metrics_strategy import (
+    AccuracyStrategy, F1ScoreStrategy, MetricsStrategyIterator,
+    PrecisionStrategy, RecallStrategy)
 
 
 class TrainingProcessConfig:

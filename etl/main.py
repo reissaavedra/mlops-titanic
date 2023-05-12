@@ -1,11 +1,12 @@
+import click
+from loguru import logger
+
+from database.database import db
+from etl.config.etl_config import ETLConfig
 from etl.constant.general_constant import TITANIC_DATASET_NAME
-from etl.process.titanic_etl_process import TitanicETLProcess
 from etl.extract.extractor.api_extractor import APIExtractor
 from etl.extract.service.kaggle_service import kaggle_api
-from etl.config.etl_config import ETLConfig
-from database.database import db
-from loguru import logger
-import click
+from etl.process.titanic_etl_process import TitanicETLProcess
 
 
 @click.command()

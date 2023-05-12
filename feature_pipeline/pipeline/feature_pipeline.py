@@ -1,10 +1,17 @@
-from feature_pipeline.pipeline.composite_feature_pipeline import CompositeFeaturePipeline
-from feature_pipeline.pipeline.transformers.age_column import AgeColumnTransformer
-from feature_pipeline.pipeline.transformers.cabin_column import CabinColumnTransformer
-from feature_pipeline.pipeline.transformers.categorical_column import CategoricalColumnTransformer
-from feature_pipeline.pipeline.transformers.name_column import NameColumnTransformer
-from feature_pipeline.pipeline.transformers.passenger_column import PassengerColumnTransformer
 from sklearn.preprocessing import Normalizer
+
+from feature_pipeline.pipeline.composite_feature_pipeline import \
+    CompositeFeaturePipeline
+from feature_pipeline.pipeline.transformers.age_column import \
+    AgeColumnTransformer
+from feature_pipeline.pipeline.transformers.cabin_column import \
+    CabinColumnTransformer
+from feature_pipeline.pipeline.transformers.categorical_column import \
+    CategoricalColumnTransformer
+from feature_pipeline.pipeline.transformers.name_column import \
+    NameColumnTransformer
+from feature_pipeline.pipeline.transformers.passenger_column import \
+    PassengerColumnTransformer
 
 
 class FeaturePipeline:

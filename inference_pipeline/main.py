@@ -1,10 +1,12 @@
-from loguru import logger
 import click
+from loguru import logger
 
-from inference_pipeline.config.inference_process_config import InferenceProcessConfig
 from database.database import db
+from inference_pipeline.config.inference_process_config import \
+    InferenceProcessConfig
 from inference_pipeline.constant.general_constant import ML_FLOW_TRACKING_URI
-from inference_pipeline.process.titanic_inference_process import TitanicInferenceProcess
+from inference_pipeline.process.titanic_inference_process import \
+    TitanicInferenceProcess
 
 
 @click.command()

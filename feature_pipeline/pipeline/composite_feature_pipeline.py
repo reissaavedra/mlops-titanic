@@ -1,9 +1,12 @@
-from sklearn.pipeline import Pipeline
 import os
 
-from feature_pipeline.constant.general_constant import FEATURE_PIPELINE_JOBLIB_PATH
-from loguru import logger
 import joblib
+from loguru import logger
+from sklearn.pipeline import Pipeline
+
+from feature_pipeline.constant.general_constant import \
+    FEATURE_PIPELINE_JOBLIB_PATH
+
 
 class CompositeFeaturePipeline:
     def __init__(self):

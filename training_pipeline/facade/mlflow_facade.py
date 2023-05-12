@@ -1,6 +1,8 @@
 import mlflow
 from mlflow.tracking import MlflowClient
-from training_pipeline.constant.general_constant import MODEL_URI, MLFLOW_EXPERIMENT
+
+from training_pipeline.constant.general_constant import (MLFLOW_EXPERIMENT,
+                                                         MODEL_URI)
 
 
 class MLFlowFacade:
