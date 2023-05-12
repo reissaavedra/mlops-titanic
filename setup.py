@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import find_packages, setup
 
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
@@ -6,16 +6,18 @@ with open('requirements.txt') as f:
 setup(
     name='ml_titanic',
     version='0.1',
-    py_modules=['ml_engineering', 'etl', 'database',  'configuration'],
+    packages=find_packages(),
+    py_modules=['etl', 'database',  'configuration',
+                'feature_pipeline', 'training_pipeline', 'inference_pipeline'],
     install_requires=requirements,
     entry_points='''
         [console_scripts]
         etl=etl.main:main
         [console_scripts]
-        train=ml_engineering.pipeline.training_pipeline.main:main
+        train=training_pipeline.main:main
         [console_scripts]
-        features=ml_engineering.pipeline.feature_pipeline.main:main
+        features=feature_pipeline.main:main
         [console_scripts]
-        inference=ml_engineering.pipeline.inference_pipeline.main:main
+        inference=inference_pipeline.main:main
     ''',
 )

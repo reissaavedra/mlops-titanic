@@ -1,12 +1,16 @@
-from etl.load.repository.titanic_test_sql_repository import TitanicTestSqlRepository
-from etl.load.repository.titanic_train_sql_repository import TitanicTrainSqlRepository
+import time
+from test.fakes.models_fake import ModelsFake
+from typing import Any, List
+
+from alembic import command
+from alembic.config import Config
 from sqlalchemy.engine import Result
 from sqlalchemy.orm import Session
-from typing import List, Any
-import time
-from alembic.config import Config
-from test.fakes.models_fake import ModelsFake
-from alembic import command
+
+from etl.load.repository.titanic_sql_repository import \
+    TitanicTrainSqlRepository
+from etl.load.repository.titanic_test_sql_repository import \
+    TitanicTestSqlRepository
 
 
 class BaseTest(ModelsFake):

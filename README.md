@@ -42,9 +42,10 @@ Para desplegar los servcios se debe hacer uso de docker-compose de la siguiente 
 
 \`make docker `
 
-Para usar los módulos el CLI del proyecto ejecutar el siguiente comando en el directorio root
+Para usar los módulos el CLI del proyecto ejecutar el siguiente comando en el directorio root. Esto instalará el paquete y sus dependencias.
+Se recomienda usar virtual environment.
 
-`pip install --editable .`
+`pip install .`
 
 Los distintos módulos del proyecto son invocados mediante CLI (Command Line Interface) , el cual se usará de la siguiente manera:
 
@@ -61,15 +62,15 @@ Los distintos módulos del proyecto son invocados mediante CLI (Command Line Int
 `train`
 
 params:
-* '- t' : tipo de modelo a entrenar (logistic regression, xgboost classifier, random forest classifier)
-* '- hp': path donde se encuentra el archivo de configuración yaml
-* '--name': nombre del modelo
+* '--model_type -mt' : tipo de modelo a entrenar (logistic regression, xgboost classifier, random forest classifier)
+* '--hyperparams -hp': path donde se encuentra el archivo de configuración yaml
+* '--model_name -mn': nombre del modelo
 #### Inference Pipeline
 
-\`inference\`
+\`$ inference\`
 
 params:
-* '-modelname': nombre del modelo a recuperar de mlflow
+* '--modelname -mn': nombre del modelo a recuperar de mlflow
 
 
 ### Test

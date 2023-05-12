@@ -5,8 +5,8 @@ Revises: b4dbf82bc918
 Create Date: 2023-05-06 23:07:50.690385
 
 """
-from alembic import op
 import sqlalchemy as sa
+from alembic import op
 from sqlalchemy import DateTime
 
 # revision identifiers, used by Alembic.
@@ -17,18 +17,11 @@ depends_on = None
 
 
 def upgrade() -> None:
-    op.add_column('titanic_train',
-                  sa.Column('created_at', sa.DateTime(timezone=True),
-                            nullable=True, server_default=sa.text('(now() at time zone \'utc-5\')')))
-
-    op.add_column('titanic_test',
+    op.add_column('titanic',
                   sa.Column('created_at', sa.DateTime(timezone=True),
                             nullable=True, server_default=sa.text('(now() at time zone \'utc-5\')')))
 
 
 def downgrade() -> None:
-    op.drop_column('titanic_train',
-                   'created_at')
-
-    op.drop_column('titanic_test',
+    op.drop_column('titanic',
                    'created_at')

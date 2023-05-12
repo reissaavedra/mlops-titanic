@@ -22,3 +22,6 @@ azure-mgmt-resource
 azure-mgmt-storage
 psutil==5.9.5
 scipy==1.9.1
+gradio
+azure-identity
+isort
